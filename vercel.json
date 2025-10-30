@@ -1,0 +1,45 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)\\.(js|css|woff2|svg|json|br|gz)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "ETag",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|gif|webp|avif|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        },
+        {
+          "key": "ETag",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
